@@ -15,7 +15,15 @@ export default function Login() {
     e.preventDefault();
     try {
       const { data } = await api.post('/user/login', form);
-      signIn(data.user, data.token);
+      // API returns: { Message, Id, Name, Username, Email, Role, Token }
+      const user = {
+        id: data.Id,
+        name: data.Name,
+        username: data.Username,
+        email: data.Email,
+        role: data.Role
+      };
+      signIn(user, data.Token);
       window.location.href = '/';
     } catch (err) {
       setError(err.response?.data || 'Login failed');

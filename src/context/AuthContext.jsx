@@ -10,7 +10,14 @@ export function AuthProvider({ children }) {
     const token = localStorage.getItem('token');
     const stored = localStorage.getItem('user');
     if (token && stored) {
-      setUser(JSON.parse(stored));
+      try {
+        setUser(JSON.parse(stored));
+      } catch (error) {
+        console.error('Invalid user data in localStorage:', error);
+        // Clean up corrupted data
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+      }
     }
   }, []);
 
