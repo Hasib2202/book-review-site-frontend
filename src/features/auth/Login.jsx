@@ -48,21 +48,21 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-secondary/20 p-4">
       <div className="w-full max-w-md">
         <div className="flex flex-col items-center mb-8">
-          <Link to="/" className="flex items-center space-x-2 mb-4">
-            <BookOpen className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+          <Link to="/" className="flex items-center space-x-2 mb-4 group">
+            <BookOpen className="h-8 w-8 text-blue-400 group-hover:scale-110 transition-transform duration-300" />
+            <span className="font-serif text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent hover:from-emerald-400 hover:via-purple-400 hover:to-blue-400 transition-all duration-500">
               BookHaven
             </span>
           </Link>
-          <p className="text-muted-foreground text-center">
+          <p className="font-sans text-muted-foreground text-center text-sm sm:text-base">
             Welcome back! Sign in to your account
           </p>
         </div>
 
-        <Card className="border-border/50 shadow-xl">
+        <Card className="border-border/50 shadow-xl bg-card/95 backdrop-blur-sm">
           <CardHeader className="space-y-1 text-center">
-            <CardTitle className="text-2xl font-bold">Sign In</CardTitle>
-            <CardDescription>
+            <CardTitle className="font-serif text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Sign In</CardTitle>
+            <CardDescription className="font-sans text-muted-foreground">
               Enter your credentials to access your account
             </CardDescription>
           </CardHeader>
@@ -75,9 +75,9 @@ export default function Login() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="username">Username</Label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
+                <Label htmlFor="username" className="font-sans text-sm font-medium">Username</Label>
+                <div className="relative group">
+                  <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground group-focus-within:text-blue-400 transition-colors duration-300" />
                   <Input
                     id="username"
                     name="Username"
@@ -86,16 +86,16 @@ export default function Login() {
                     value={form.Username}
                     onChange={handleChange}
                     required
-                    className="pl-10"
+                    className="font-sans pl-10 h-11 focus-visible:ring-blue-400 focus-visible:border-blue-400 transition-all duration-300"
                     disabled={isLoading}
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
+                <Label htmlFor="password" className="font-sans text-sm font-medium">Password</Label>
+                <div className="relative group">
+                  <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground group-focus-within:text-purple-400 transition-colors duration-300" />
                   <Input
                     id="password"
                     name="Password"
@@ -104,13 +104,13 @@ export default function Login() {
                     value={form.Password}
                     onChange={handleChange}
                     required
-                    className="pl-10 pr-10"
+                    className="font-sans pl-10 pr-10 h-11 focus-visible:ring-purple-400 focus-visible:border-purple-400 transition-all duration-300"
                     disabled={isLoading}
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-2.5 h-4 w-4 text-muted-foreground hover:text-foreground transition-colors"
+                    className="absolute right-3 top-3 h-4 w-4 text-muted-foreground hover:text-purple-400 transition-colors duration-300"
                     disabled={isLoading}
                   >
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -118,17 +118,22 @@ export default function Login() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between">
-                <label className="flex items-center space-x-2">
-                  <input type="checkbox" className="rounded border-border" />
-                  <span className="text-sm text-muted-foreground">Remember me</span>
+              <div className="flex items-center justify-between text-sm">
+                <label className="flex items-center space-x-2 cursor-pointer">
+                  <input type="checkbox" className="rounded border-border accent-blue-400" />
+                  <span className="font-sans text-muted-foreground">Remember me</span>
                 </label>
-                <Link to="/forgot-password" className="text-sm text-primary hover:underline">
+                <Link to="/forgot-password" className="font-sans text-emerald-400 hover:text-emerald-300 hover:underline transition-colors duration-300">
                   Forgot password?
                 </Link>
               </div>
 
-              <Button type="submit" className="w-full" size="lg" disabled={isLoading}>
+              <Button
+                type="submit"
+                className="w-full font-sans font-medium h-11 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
+                size="lg"
+                disabled={isLoading}
+              >
                 {isLoading ? 'Signing in...' : 'Sign In'}
               </Button>
             </form>
@@ -136,9 +141,9 @@ export default function Login() {
             <Separator />
 
             <div className="text-center space-y-4">
-              <p className="text-sm text-muted-foreground">
+              <p className="font-sans text-sm text-muted-foreground">
                 Don't have an account?{' '}
-                <Link to="/register" className="text-primary hover:underline font-medium">
+                <Link to="/register" className="text-emerald-400 hover:text-emerald-300 hover:underline font-medium transition-colors duration-300">
                   Sign up
                 </Link>
               </p>
@@ -146,11 +151,11 @@ export default function Login() {
           </CardContent>
         </Card>
 
-        <p className="text-center text-xs text-muted-foreground mt-8">
+        <p className="font-mono text-center text-xs text-muted-foreground mt-8">
           By signing in, you agree to our{' '}
-          <Link to="/terms" className="hover:underline">Terms of Service</Link>
+          <Link to="/terms" className="text-blue-400 hover:text-blue-300 hover:underline transition-colors duration-300">Terms of Service</Link>
           {' '}and{' '}
-          <Link to="/privacy" className="hover:underline">Privacy Policy</Link>
+          <Link to="/privacy" className="text-purple-400 hover:text-purple-300 hover:underline transition-colors duration-300">Privacy Policy</Link>
         </p>
       </div>
     </div>
