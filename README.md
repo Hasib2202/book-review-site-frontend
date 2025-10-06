@@ -1,4 +1,39 @@
-# Getting Started with Create React App
+# BookHaven - Modern Book Review Platform
+
+A beautiful, modern book review platform built with React and shadcn/ui components in dark mode. Discover, review, and share your favorite books with a community of passionate readers.
+
+## ✨ Features
+
+### 🎨 Modern Design
+
+- **Dark Mode Only**: Elegant dark theme with shadcn/ui components
+- **Responsive Design**: Beautiful on all devices
+- **Modern UI**: Cards, gradients, and smooth animations
+- **Professional Layout**: Clean and intuitive user experience
+
+### 🔐 Authentication
+
+- **Secure Login/Register**: Beautiful forms with validation
+- **User Profiles**: Personalized user experience
+- **Protected Routes**: Secure access to user features
+
+### 📚 Core Features (Current)
+
+- **Homepage**: Hero section, stats, featured books, testimonials
+- **Navigation**: Modern navbar with search and user dropdown
+- **Footer**: Comprehensive footer with links and social media
+- **Responsive**: Mobile-first design approach
+
+## 🛠 Tech Stack
+
+- **Frontend**: React 19.1.0
+- **UI Components**: shadcn/ui (Radix UI + Tailwind CSS)
+- **Styling**: Tailwind CSS with custom dark theme
+- **Icons**: Lucide React
+- **Routing**: React Router DOM
+- **HTTP Client**: Axios
+
+## 🚀 Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
